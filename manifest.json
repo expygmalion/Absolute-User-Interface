@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "Universal Visual Editor",
+  "version": "1.0",
+  "description": "Edit any website's layout with Figma-like controls",
+  "permissions": ["activeTab", "scripting"],
+  "action": {
+    "default_title": "Universal Visual Editor"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "css": ["styles.css"]
+    }
+  ]
+}
