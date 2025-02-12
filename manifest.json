@@ -3,9 +3,19 @@
   "name": "Universal Visual Editor",
   "version": "1.0",
   "description": "Edit any website's layout with Figma-like controls",
-  "permissions": ["activeTab", "scripting"],
+  "icons": {
+    "16": "images/icon16.png",
+    "48": "images/icon48.png",
+    "128": "images/icon128.png"
+  },
+  "permissions": ["activeTab", "scripting", "storage"],
+  "host_permissions": ["<all_urls>"],
   "action": {
-    "default_title": "Universal Visual Editor"
+    "default_icon": {
+      "16": "images/icon16.png",
+      "48": "images/icon48.png",
+      "128": "images/icon128.png"
+    }
   },
   "background": {
     "service_worker": "background.js"
@@ -17,4 +27,4 @@
       "css": ["styles.css"]
     }
   ]
-}
+} 

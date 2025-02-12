@@ -1,7 +1,28 @@
 chrome.action.onClicked.addListener((tab) => {
-    // Executing content.js on the active tab when the extension is clicked
     chrome.scripting.executeScript({
         target: { tabId: tab.id },
-        files: ["content.js"]
+        func: initializeEditor
     });
 });
+
+function initializeEditor() {
+    if (window.visualEditorActive) {
+        disableEditor();
+    } else {
+        enableEditor();
+    }
+}
+
+function enableEditor() {
+    window.visualEditorActive = true;
+    document.body.classList.add("editor-active");
+    createOverlay();
+    console.log("Visual Editor Enabled");
+}
+
+function disableEditor() {
+    window.visualEditorActive = false;
+    document.body.classList.remove("editor-active");
+    document.getElementById("editor-overlay")?.remove();
+    console.log("Visual Editor Disabled");
+}

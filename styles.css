@@ -1,129 +1,53 @@
-.draggable {
-    cursor: move !important;
-    position: relative;
-    z-index: 1000;
-  }
-  
-  .dragging {
-    opacity: 0.5;
-    border: 2px dashed #1DA1F2;
-  }
-  .spacing-guide {
-    position: fixed;
-    background: rgba(255, 192, 203, 0.5);
-    pointer-events: none;
-    z-index: 9999;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 12px;
-    color: #FF69B4;
-    font-weight: bold;
-  }
-  
-  .spacing-label {
-    background: #FF69B4;
-    color: white;
-    padding: 2px 4px;
-    border-radius: 4px;
-    font-size: 10px;
-  }
-  
-  
-  .group-selection-box {
-    position: fixed;
-    border: 2px solid rgba(29, 161, 242, 0.5);
-    background: rgba(29, 161, 242, 0.1);
-    pointer-events: none;
-    z-index: 9998;
-  }
-  
-  .selected-group {
-    outline: 2px solid #1DA1F2 !important;
-  }
+.editor-active {
+    cursor: pointer !important;
+    outline: 1px dashed #1DA1F2 !important;
+}
 
-  .editor-overlay {
+.resize-handle {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #1DA1F2;
+    border-radius: 50%;
+    z-index: 1001;
+}
+
+.resize-handle.nw { top: -4px; left: -4px; cursor: nw-resize; }
+.resize-handle.n { top: -4px; left: 50%; transform: translateX(-50%); cursor: n-resize; }
+.resize-handle.ne { top: -4px; right: -4px; cursor: ne-resize; }
+.resize-handle.w { top: 50%; left: -4px; transform: translateY(-50%); cursor: w-resize; }
+.resize-handle.e { top: 50%; right: -4px; transform: translateY(-50%); cursor: e-resize; }
+.resize-handle.sw { bottom: -4px; left: -4px; cursor: sw-resize; }
+.resize-handle.s { bottom: -4px; left: 50%; transform: translateX(-50%); cursor: s-resize; }
+.resize-handle.se { bottom: -4px; right: -4px; cursor: se-resize; }
+
+.selected {
+    outline: 2px solid #FF69B4 !important;
+}
+
+.editor-overlay {
     position: fixed;
     top: 10px;
     right: 10px;
     background: white;
     padding: 10px;
     border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     z-index: 10000;
-  }
-  .editor-overlay button.disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-  }
-  
-  .copied-element-preview {
-    opacity: 0.5;
+}
+
+.spacing-guide {
+    position: absolute;
+    background: rgba(255, 0, 0, 0.5);
     pointer-events: none;
-    position: fixed;
-    z-index: 9999;
-  }
-  .resize-handle {
+}
+
+.spacing-label {
     position: absolute;
-    width: 8px;
-    height: 8px;
-    background: #1DA1F2;
-    border: 1px solid white;
-    border-radius: 50%;
-    z-index: 1001;
-  }
-  
-  .resize-handle.nw { top: -4px; left: -4px; cursor: nw-resize; }
-  .resize-handle.n  { top: -4px; left: 50%; transform: translateX(-50%); cursor: n-resize; }
-  .resize-handle.ne { top: -4px; right: -4px; cursor: ne-resize; }
-  .resize-handle.w  { top: 50%; left: -4px; transform: translateY(-50%); cursor: w-resize; }
-  .resize-handle.e  { top: 50%; right: -4px; transform: translateY(-50%); cursor: e-resize; }
-  .resize-handle.sw { bottom: -4px; left: -4px; cursor: sw-resize; }
-  .resize-handle.s  { bottom: -4px; left: 50%; transform: translateX(-50%); cursor: s-resize; }
-  .resize-handle.se { bottom: -4px; right: -4px; cursor: se-resize; }
-  
-  .rotation-handle {
-    position: absolute;
-    width: 12px;
-    height: 12px;
-    background: #1DA1F2;
-    border: 2px solid white;
-    border-radius: 50%;
-    top: -30px;
-    left: 50%;
-    transform: translateX(-50%);
-    cursor: grab;
-    z-index: 1001;
-  }
-  
-  .rotation-line {
-    position: absolute;
-    width: 2px;
-    height: 20px;
-    background: #1DA1F2;
-    top: -24px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 1000;
-  }
-  
-  .resizable {
-    border: 1px solid rgba(29, 161, 242, 0.3);
-  }
-  
-  .snap-line {
-    position: fixed;
-    background: #FF4444;
-    z-index: 9999;
+    background: white;
+    color: black;
+    font-size: 12px;
+    padding: 2px 5px;
+    border-radius: 3px;
     pointer-events: none;
-  }
-  
-  .snap-line.horizontal {
-    height: 1px;
-    width: 100%;
-  }
-  
-  .snap-line.vertical {
-    width: 1px;
-    height: 100%;
-  }
+}
